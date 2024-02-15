@@ -1,0 +1,32 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>login</title>
+            <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+            <link rel="stylesheet" href="{% static 'js/bootstrap.js'%}">
+            <link rel="stylesheet" href="{% static 'mycss/login.css'%}">
+    </head>
+    <body>
+        <div class="container bg-light" style="height: 70px;" >
+            <div class="row p-3">
+              <div class="col-2">
+                <a href="/" id="bh">BH</a>
+              </div>
+            </div>
+        </div>
+        <div class="container p-4 " style="width:400px">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    {{message}}
+                    {{form.errors}}
+                    <button type="submit" id="login_btn">Login</button>
+                </form>
+        </div>
+        {% include 'footer.html'%}
+    </body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.js'%}">
+    <link rel="stylesheet" href="{% static 'scss/custom.scss'%}">
+</head>
+<body>
+  <div class="container bg-light" style="height: 70px;" >
+    <div class="row p-3">
+      <div class="col-2">
+        <a href="/" id="bh">BH</a>
+      </div>
+    </div>
+</div>
+ <div class="container p-3" style="width: 400px;">
+      <h2 class="p-2 ">Sign Up</h2>
+      <form method="POST" id="signup-form">
+        <div>
+            {% csrf_token %}
+            <label for="{{form.category.role }}" id="category_label">{{form.category.label}}</label>
+            <p id="category">
+                {{form.category}}
+            </p> <br>
+            <label for="{{form.category.role }}" id="first_name">{{form.first_name.label}}</label>
+            <p id="f_name">
+              {{form.first_name}}
+            </p> <br>
+            <label for="" id="last_name">{{form.last_name.label}}</label>
+            <p id="l_name">
+                {{form.last_name}}
+            </p> <br>
+            <label for="" id="user_name">{{form.username.label}}</label>
+            <p id="u_name">
+                {{form.username}}
+            </p><br>
+            <label for="" id="email">{{form.email.label}}</label>
+            <p id="E_mail">
+              {{form.email}}
+            </p><br>
+            <label for="" id="password1">{{form.password1.label}}</label>
+            <p id="pass_1">
+               {{form.password1}}
+            </p><br>
+            <label for="" id="password2">{{form.password2.label}}</label>
+            <p id="pass_2">
+               {{form.password2}}
+            </p><br>
+            <button type="submit">Submit</button>
+        </div>
+      </form>
+  </div>
+  {% include 'footer.html'%}
+    </body>
+    </html>

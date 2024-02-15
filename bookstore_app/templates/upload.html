@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>upload a book</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/upload.css'%}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+        <link rel="stylesheet" href="{% static 'js/bootstrap.js'%}">
+        <link rel="stylesheet" href="{% static 'mycss/upload.css'%}">
+    </head>
+    <body>
+        <div class="container bg-light" style="height: 70px;" >
+            <div class="row p-3">
+              <div class="col-2">
+                <a href="/" id="bh">BH</a>
+              </div>
+            </div>
+        </div>
+        <div class="container p-3" style="width: 700px;">
+            <div >
+                    <h3 class="row p-3">Share Your Documents</h3>
+                    <div class="form-group py-2">
+                        <form method="post" action="{% url 'upload'%}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table>
+                                {{form.as_table}}
+                            </table>
+                            <input type="submit" value="Upload" id="upload-btn">
+                        </form>
+                    </div>
+             </div>
+        </div>
+        {% include 'footer.html'%}
+    </body>
+</html>

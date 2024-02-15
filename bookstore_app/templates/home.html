@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>book store</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'mycss/css.css'%}">
+    <link rel="stylesheet" href="{% static 'scss/custom.scss'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css'%}">
+  </head>
+
+  <body>
+    <!-- xs<576 | 576<sm<768 | 768<md<992 | 992<lg<1200 | 1200<xl-->
+    <div class="container-fluid bg-light " style="height: 70px;">
+      <!--
+          <nav class="navbar navbar-dark bg-dark navbar-expand-xl">
+            <a href="" class="navbar-brand navbarBrandClass">
+              <img src="{% static 'images/literature.png'%}" class="img-fluid " width="40" height="40" alt="">Book-House</a>
+            </a>
+            <button data-toggle="collapse" data-target="#Toggler" class="navbar-toggler"   type="button">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="Toggler">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                      <a href="" class="nav-link active">home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">services</a>
+                      <div class="dropdown-menu">
+                            <a href="" class="dropdown-itm">web-designing</a>
+                            <a href="" class="dropdown-itm">web-development</a>
+                            <a href="" class="dropdown-itm">SEO services</a>
+                            <a href="" class="dropdown-itm">software development</a>
+                            <a href="" class="dropdown-itm">mobile app development</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="" class="dropdown-itm">graphic design</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="" class="nav-link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+          </nav>
+      -->
+      <div class="navbar navbar-expand-md">
+        <div class="col">
+          <a href="" class="navbar-brand" style="text-decoration: none; color: blue;"><img
+              src="{% static 'images/literature.png'%}" width="40" height="40" alt="">Book-House</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <!--<a href="" class="navbar-brand" style="text-decoration: none; color: blue;"><img
+            src="{% static 'images/literature.png'%}" width="40" height="40" alt="">Book-House</a> -->
+        </div>
+          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-8">
+            <form action="">
+              <input type="text" placeholder="search book" id="search_input">
+              <button type="submit"
+                style="position: absolute;top: 20px;right: 41%;color: #6b6b6b;border: none;padding: 0;background: none;">
+                <i class="fa fa-search search-button" style="font-size: 20px !important;" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+            <a href="register" id="signin">Sign-In</a>
+          </div>
+      </div>
+    </div>
+    <div class="container p-3">
+      {% for d in data%}
+      <div class="box">
+        <div id="img_div" class="col">
+          <img src="{{d.cover_page}}" alt="" class="img-fluid" width="95" height="115">
+        </div>
+        <div id="content_div" class="col">
+          <a href="">
+            <p>{{ d.book_title}}</p>
+          </a>
+          <!--<p>Book file:<a href="{% url 'download_file' d.id %}" style="color: rgb(14, 142, 226)">{{ d.Book_file}}</a></p> -->
+          {{d.file_size|filesizeformat }}
+          <!--{{ d.price}} Birr -->
+          <p>{{ d.published_date}}</p>
+          <a href="paywithyenepay"><button id="download_btn">Download</button></a>
+        </div>
+      </div>
+      {% endfor%}
+    </div>
+
+    {% include 'footer.html'%}
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+  </body>
+
+</html>

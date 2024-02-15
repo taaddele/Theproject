@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="https://www.yenepay.com" method="POST">
+            {% csrf_token%}
+                <input type="hidden" name="Process" value="Express">
+                <!--A unique identifier for the payment order. Yenepay will attach it to the order and
+                    echo it back when sending you any inforamtion about the order. To let the customer complete
+                    unfinished order you can send it again with the same order info-->
+                <input type="hidden" name="MerchantOrderId" value="">
+                <!--Your yenepay merchant code-->
+                <input type="hidden" name="MerchantId" value="SB2642">
+                <!-- The ipn url that you want yenepay to send you ipn messages to. Note localhost is not accepted here-->
+                <input type="hidden" name="IPNUrl" value="http://127.0.0.1:8000/ipn">
+                <!-- The url in your website or application that you want yenepay to redirect the customer after completing their payment. Note localhost is not accepted here-->
+                <input type="hidden" name="SuccessUrl" value="http://127.0.0.1:8000/success">
+                <!-- The url in your website or application that you want yenepay to redirect the customer when canceling their payment. Note localhost is not accepted here-->
+                <input type="hidden" name="CancelUrl" value="http://127.0.0.1:8000/cancel">
+                <!--A unique identifier for each item in the order. You can leave this blank if you want too.-->
+                <input type="hidden" name="ItemId" value="9b38c703-e888-4159-962a-6d8cb079d94c">
+                <!--The name for the item that that your customer is paying for-->
+                <input type="hidden" name="ItemName" value="Test Item 1">
+                <!--The unit price for the item this must be a positive decimal number and can not be empty or zero-->
+                <input type="hidden" name="UnitPrice" value="50.00">
+                <!--The quantity for the item this must be a positive integer number with minimum value of 1-->
+                <!--The total price for the item will be determined by multiplying UnitPrice x Quantity for the item-->
+                <input type="hidden" name="Quantity" value="1">
+                <!--Submit button-->
+                <input type="submit" value="Buy Now">
+        </form>
+    </body>
+</html>

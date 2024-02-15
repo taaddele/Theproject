@@ -1,0 +1,27 @@
+body{
+    width: 100%;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+.footer {
+	display: inline-block;
+	margin-top: 200px;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	background: rgb(234, 241, 243);
+	color: black;;
+	line-height: 30px;
+	
+}
+.footer #cont{
+	margin-top: 10px;
+	margin-left: 20%;
+	color: black;
+  }
+ .footer #ab{
+	
+	margin-right: 20%;
+	color: black;
+	
+  }

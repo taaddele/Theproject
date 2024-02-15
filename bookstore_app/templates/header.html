@@ -1,0 +1,15 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+            <div class="jumbotron">
+                <a href="{% url 'home'%}">Book-Store</a>
+                <a href="{% url 'register'%}" title="sign up">Sign in</a>
+            </div>
+        </nav>
+        
+    </body>
+</html>
